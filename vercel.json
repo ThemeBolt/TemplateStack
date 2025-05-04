@@ -4,9 +4,7 @@
       "source": "/(.*)",
       "destination": "/$1.html"
     }
-  ]
-},
-{
+  ],
   "redirects": [
     {
       "source": "/(.*)\\.html",
@@ -15,4 +13,3 @@
     }
   ]
 }
-
