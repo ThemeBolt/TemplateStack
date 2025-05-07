@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://templatestack.vercel.app/sitemap.xml
