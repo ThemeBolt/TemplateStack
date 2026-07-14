@@ -1,0 +1,2484 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+        integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        .rounded-lg {
+            border-radius: .8rem !important
+        }
+
+        .form-row .owl-carousel [class*=col-] {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .page-link:focus,
+        .btn.focus,
+        .btn:focus {
+            box-shadow: none;
+        }
+
+        .custom-control-input:focus:not(:checked)~.custom-control-label::before,
+        .custom-control-input:focus~.custom-control-label::before,
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #999999;
+        }
+
+        .scrollable {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-] {
+            background: #bbb !important;
+            color: #ffffff !important;
+            width: 30px;
+            height: 30px;
+            line-height: 32px !important;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-]:hover {
+            background: #999;
+            border-radius: 30px;
+            color: #FFF;
+        }
+
+        .owl-carousel .owl-prev,
+        .owl-carousel .owl-next {
+            position: absolute;
+            top: 35%;
+            height: 30px;
+            margin: auto !important;
+        }
+
+        .owl-carousel .owl-prev {
+            left: 0px;
+        }
+
+        .owl-carousel .owl-next {
+            right: 0px;
+        }
+
+        .owl-carousel.brands-carousel .owl-stage,
+        .owl-carousel.products-carousel .owl-stage,
+        .owl-carousel.testimonials-carousel .owl-stage {
+            display: flex;
+        }
+
+        .owl-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .owl-carousel .item .product-list-item {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .card-product .discount {
+            left: 8px;
+            top: 7px;
+            z-index: 7;
+        }
+
+        .card-product .img-wrap img {
+            object-fit: cover;
+        }
+
+        .block {
+            padding: 20px 0;
+        }
+
+        .block-header {
+            text-align: center;
+        }
+
+        .block-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-products {
+            padding-bottom: 0px !important;
+        }
+
+        /* theme */
+        .box-meio {
+            background: #fff;
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .wrapper .container:last-child .box-meio:last-child {
+            padding-bottom: 50px;
+        }
+
+        .page-title .h4 {
+            padding: 30px 0 30px 0;
+            margin: 0;
+        }
+
+        /* brands carousel <-- */
+        .brands-carousel .owl-stage {
+            display: flex;
+        }
+
+        .brands-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+
+        .block-brands .box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            min-height: 60px;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* brands carousel --> */
+
+        /* desktop */
+        @media (min-width: 991px) {}
+
+        /* mobile */
+        @media (max-width: 990px) {
+            .page-title .h4 {
+                padding: 20px 0 20px 0;
+            }
+
+            .box-meio.bg-transparent {
+                margin: 0;
+            }
+
+            .block .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.10.14/src/bootstrap-input-spinner.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"
+        integrity="sha512-gDWSGGWzTc0mD1P0NwDUsZsSrSyLsC8Mv0I14JtDFJXu2Pgo3ik5Uk1+BqxosbEJU2gDUD6W5DCpn7l29Ah9Ag=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"
+        integrity="sha512-BPbay65HZK0I/A8rKJYm1oLFOUaPUrxOfyx89UMVTpPzuc0uVASMcSk1QokHAuf9nti43BDcrLwappGfJSuJBA=="
+        crossorigin="anonymous"></script>
+    <script>
+        function validarCPF(cpf) {
+
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf == '') return false;
+
+            if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" ||
+                cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+                return false;
+
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(9)))
+                return false;
+
+            add = 0;
+            for (i = 0; i < 10; i++)
+                add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(10)))
+                return false;
+
+            return true;
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        $(document).ready(function () {
+
+            $(".data").mask("00/00/0000", { clearIfNotMatch: true });
+            $('.cep').mask('00000-000', { clearIfNotMatch: true });
+            $(".cpf").mask("000.000.000-00", { clearIfNotMatch: true });
+            $(".cnpj").mask("00.000.000/0000-00", { clearIfNotMatch: true });
+            $('.valor').mask('000.000.000.000.000,00', { reverse: true });
+            $('.card-expiration-date').mask('00/00');
+            $('.card-number').mask('0000 0000 0000 0000');
+            $('.card-cvv').mask('0000');
+
+            var SPMaskBehavior = function (val) { return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'; },
+                spOptions = { onKeyPress: function (val, e, field, options) { field.mask(SPMaskBehavior.apply({}, arguments), options); } };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+
+            // auto scroll to div
+            if ($(".scroll-to-here")[0]) {
+                var $anchor = $('.scroll-to-here').offset();
+                $('html, body').animate({ scrollTop: $anchor.top - 0 }, 1000);
+            }
+
+            $('.show-loading').click(function () {
+                $('.loading').fadeIn();
+            });
+
+            $('form').on('keyup', '.cep', function () {
+                var cep = $(this).val();
+                var url = $(this).attr('url');
+                var $endereco = $(this).parents('.endereco');
+                if (cep != "" && cep.length == 9) {
+                    $.ajax({
+                        type: 'get',
+                        url: url + '/' + cep,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.data.bairro != '') {
+                                $endereco.find(".logradouro").val(data.data.logradouro);
+                                $endereco.find(".bairro").val(data.data.bairro);
+                                $endereco.find(".cidade").val(data.data.cidade);
+                                $endereco.find(".uf").val(data.data.uf);
+                                $endereco.find(".numero").focus();
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(".cpf").keyup(function () {
+                cpf = $(this).val().replace(/[^\d]+/g, '');
+                if (cpf.length == 11 && validarCPF($(this).val()) == false) {
+                    alert('O CPF ' + $(this).val() + ' inserido não é válido.')
+                    $(this).val('');
+                }
+            });
+
+            $('.copy-to-clipboard').click(function (e) {
+                e.preventDefault();
+                const el = document.createElement('textarea');
+                document.body.appendChild(el);
+                el.value = $(this).data('text');
+                el.select();
+                el.focus();
+                el.setSelectionRange(0, 99999);
+
+                try {
+                    document.execCommand('copy');
+                    alert('Conteúdo copiado com sucesso');
+                } catch (err) {
+                    alert('Desculpe, seu navegador não copiou o conteúdo.');
+                }
+
+                document.body.removeChild(el);
+            });
+
+            if ($.fn.owlCarousel) {
+                $('.products-carousel').owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    dots: false,
+                    slideBy: 4,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: false,
+                            items: 2
+                        },
+                        600: {
+                            dots: false,
+                            items: 3
+                        },
+                        1000: {
+                            dots: false,
+                            items: 4
+                        }
+                    }
+                });
+
+                $('.brands-carousel').owlCarousel({
+                    loop: false,
+                    nav: true,
+                    margin: 8,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 2,
+                            items: 2
+                        },
+                        600: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 3,
+                            items: 3
+                        },
+                        1000: {
+                            dots: true,
+                            nav: true,
+                            slideBy: 6,
+                            items: 6
+                        }
+                    }
+                });
+            }
+
+        })
+
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://templatestack.vercel.app/tema-ella-shopify" />
+
+    <link rel="icon" type="image/png" href="https://templatestack.vercel.app/favicon-32x32.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        body,
+        .product-text * {
+            font-family: 'Titillium Web' !important;
+        }
+    </style>
+
+    <style>
+        .fonte-padrao,
+        .btn,
+        .fonte-menu,
+        .fonte-titulo {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-menu {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-titulo,
+        .block-title {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+
+    <style>
+        header,
+        header.complete,
+        header.minimal {
+            background-color: #111111 !important;
+        }
+
+        header,
+        header a,
+        header.minimal h1,
+        header.minimal .back-icon a,
+        header .shortcuts .nav-item a {
+            color: #ffffff !important;
+        }
+
+        header.header-156848294 .search-wrap .input-group input,
+        header.header-156848294 .search-wrap .input-group button {
+            color: #ffffff !important;
+        }
+
+        .section-header,
+        .nav-mobile .line-1,
+        .nav-mobile .line-2 {
+            background-color: #111111 !important;
+        }
+
+        .section-header,
+        .section-header a,
+        .nav-mobile .line-1,
+        .nav-mobile .line-1 a,
+        .nav-mobile .line-1 i {
+            color: #ffffff !important;
+        }
+
+        .category-list,
+        .shortcuts-mobile-area {
+            background-color: #ffffff !important;
+        }
+
+        .category-list .item a,
+        .shortcuts-mobile-area,
+        .shortcuts-mobile-area a {
+            color: #212529 !important;
+        }
+
+        .nav-principal,
+        .menu-mobile {
+            background-color: #ffffff !important;
+        }
+
+        .menu-principal li>a.nav-link,
+        .menu-mobile .nav-link,
+        .menu-principal li>a.nav-link:hover,
+        .menu-mobile .nav-link:hover {
+            color: #212529 !important;
+        }
+
+
+
+
+
+        footer,
+        .direitos {
+            background-color: #111111;
+        }
+
+        footer,
+        footer a,
+        footer a:hover,
+        .direitos,
+        .direitos a,
+        .direitos a:hover {
+            color: #ffffff !important;
+        }
+
+        .section-footer,
+        .section-subscribe {
+            background-color: #111111;
+        }
+
+        .section-footer,
+        .section-subscribe,
+        .section-footer a,
+        .section-subscribe a {
+            color: #ffffff !important;
+        }
+    </style>
+
+    <!-- custom css -->
+    <style> </style>
+    <!-- end custom css -->
+
+    <title>Tema Ella para Shopify: como transformar um tema completo em uma loja clara, leve e pronta para vender - TemplateStack</title>
+
+    <meta name="description" content="">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="TemplateStack" />
+    <meta property="og:title" content="Tema Ella para Shopify: como transformar um tema completo em uma loja clara, leve e pronta para vender - TemplateStack" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer="" data-domain="templatestack.vercel.app" src="script.js"></script>
+
+    <!-- custom -->
+
+    <!-- end custom -->
+</head>
+
+<body class="internal">
+
+    <div class="loading"><i class="fas fa-spinner fa-3x fa-spin"></i></div>
+
+    <style>
+        .loading {
+            display: none;
+            background: rgba(0, 0, 0, .5);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+            color: #fff;
+            text-shadow: 0px 0px 30px #000;
+            padding-top: 200px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+
+    <div class="cookiealert-area">
+        <div class="alert text-center cookiealert rounded" role="alert" style="opacity:0.9;">
+            Ao navegar neste site você aceita o uso de cookies para criar uma melhor experiência de navegação.
+
+            <button type="button" class="btn btn-light btn-sm acceptcookies">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+    <style>
+        .cookiealert-area {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            bottom: 15px;
+            z-index: 9999;
+            max-width: 900px;
+        }
+
+        @media (max-width: 990px) {
+            .cookiealert-area {
+                width: 85%;
+            }
+        }
+    </style>
+
+    <div class="zap">
+        <a href="" aria-label="Conversar no WhatsApp" target="_blank"
+            class="box-zap zap-floating-button text-decoration-none">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <style>
+        .messenger {
+            right: 85px !important;
+        }
+
+        .zap {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 99;
+        }
+
+        .box-zap {
+            width: 60px;
+            height: 60px;
+            background: #23B847;
+            border-radius: 50%;
+            color: #fff !important;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            margin: 2px;
+            padding: 10px;
+            font-size: 34px;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.banners-topo-carousel').owlCarousel({
+                autoplay: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoHeight: true,
+                loop: true,
+                margin: 0,
+                dots: false,
+                nav: false,
+                slideBy: 1,
+                items: 1
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <header class="section-header d-none d-sm-none d-md-block header-165737185">
+        <section class="header-main pt-4 pt-md-4 pb-md-4">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3">
+                        <div class="logo text-left">
+                            <a href="https://templatestack.vercel.app/">
+                                <h1 class="logo-text">TemplateStack</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6">
+                        <form action="https://templatestack.vercel.app/produtos" method="get" class="search-wrap">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" name="term" value="Buscar produto"
+                                    onfocus="if (this.value === 'Buscar produto' || this.value === 'Search product') this.value = '';">
+                                <div class="input-group-append">
+                                    <button class="btn btn-link" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3 pl-sm-0">
+                        <div class="float-none float-sm-right">
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <div class="nav-mobile d-md-none">
+        <nav class="navbar navbar-light">
+
+            <div class="line-1 px-3">
+                <div class="row no-gutters align-items-center h-100">
+
+                    <div class="col-auto mr-3">
+                        <a href="#" class="open-sidebar" data-section="category" data-from="left">
+                            <div class="icon-wrap">
+                                <i class="bi bi-list"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <div class="logo text-left">
+                            <a href="https://templatestack.vercel.app/">
+                                <h1 class="logo-text">TemplateStack</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 text-right">
+                        <div class="d-inline-flex align-items-center">
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="line-2 px-3 pt-1 pb-3">
+                <form action="https://templatestack.vercel.app/produtos" method="get" class="search-wrap">
+                    <div class="input-group border">
+                        <input type="text" class="form-control border-0" placeholder="Buscar por produto" name="term"
+                            value="">
+                        <div class="input-group-btn">
+                            <button class="btn" type="submit">
+                                <i class="bi bi-search text-muted"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+
+    <style>
+        header a {
+            color: #6c757d;
+        }
+
+        header a:hover {
+            text-decoration: none;
+        }
+
+        header .logo img {
+            max-height: 100px;
+            max-width: 220px;
+        }
+
+        header .icon-wrap i {
+            font-size: 30px;
+            margin-right: 5px;
+        }
+
+        header .cart .icon-wrap i {
+            font-size: 27px;
+            margin-right: 8px;
+        }
+
+        header .cart-counter {
+            border-radius: 50px;
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            margin-left: 0 !important;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        header .search-wrap .input-group {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        header .search-wrap input {
+            border: none;
+            border-radius: 5px !important;
+            margin: 1px !important;
+        }
+
+        header .search-wrap button {
+            margin: 1px;
+            color: #999;
+        }
+
+        header .social-media-list li {
+            margin-bottom: 0 !important;
+        }
+
+        header .social-media-list a {
+            font-size: 12px;
+        }
+
+
+        /* tablet */
+        @media (max-width: 768px) {
+
+            header.header-3 .text-wrap,
+            header.header-4 .text-wrap,
+            header.header-5 .text-wrap {
+                display: none;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            body.menu-in {
+                overflow: hidden;
+                padding-top: 166px;
+            }
+
+            .nav-mobile nav {
+                padding: 0px;
+            }
+
+            .nav-mobile .logo img {
+                max-height: 80px;
+            }
+
+            .nav-mobile .navbar-toggler {
+                display: block;
+            }
+
+            .nav-mobile .line-1 {
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .nav-mobile .line-1 i {
+                color: #6c757d;
+                font-size: 24px !important;
+                padding: 5px 0;
+            }
+
+            .nav-mobile .logo-text {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #6c757d;
+                font-size: 22px;
+            }
+
+            .nav-mobile .cart {
+                position: relative;
+                text-align: right;
+                display: inline-block;
+            }
+
+            .nav-mobile .cart .badge {
+                position: absolute;
+                right: -3px;
+                top: -3px;
+            }
+
+            .nav-mobile a {
+                color: #fff;
+                position: relative;
+            }
+
+            .nav-mobile .line-2 {
+                width: 100%;
+            }
+
+            .nav-mobile .line-2 .btn {
+                background: #fff !important;
+                border: none;
+                width: 36px;
+                height: 36px;
+                padding: 0px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .nav-mobile .line-2 .input-group {
+                background: #fff;
+                border-radius: .25rem;
+            }
+        }
+    </style>
+
+
+
+
+    <style>
+        .offcanvas-collapse {
+            position: fixed;
+            top: 0px;
+            z-index: 10;
+            bottom: 0;
+            width: 80%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            overflow-y: auto;
+            visibility: hidden;
+            background-color: #eee;
+            box-shadow: 3px 0px 25px #666;
+            right: -100%;
+            transition-property: right, visibility;
+            transition-timing-function: ease-in-out;
+            transition-duration: .3s;
+        }
+
+        .offcanvas-collapse.open {
+            right: 0;
+            visibility: visible;
+        }
+
+        .offcanvas-collapse.left {
+            left: -100%;
+            transition-property: left, visibility;
+            right: unset;
+        }
+
+        .offcanvas-collapse.left.open {
+            left: 0;
+            right: unset;
+        }
+
+
+
+        .offcanvas-bg-overlay {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            opacity: 0.5;
+            display: none;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
+        }
+
+
+        /* desktop */
+        @media (min-width: 990px) {
+            .offcanvas-collapse {
+                width: 440px;
+            }
+        }
+    </style>
+
+    <div class="offcanvas-bg-overlay close-sidebar"></div>
+
+    <div class="sidebar py-3 px-4 navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+        <div class="sidebar-section sidebar-category">
+            <div class="sidebar-header pb-3">
+                &nbsp;
+
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul class="navbar-nav ml-auto mt-2 nav-categories-level-1 border-top">
+                </ul>
+
+
+            </div>
+        </div>
+
+        <script>
+            function showNavCategoriesLevel1() {
+                $('.nav-categories-level-2').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-1').fadeIn('fast');
+                });
+            }
+
+            function showNavCategoriesLevel2(id) {
+                $('.nav-categories-level-1').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-2.nav-category-children-' + id).fadeIn();
+                });
+            }
+
+            $(document).ready(function () {
+
+                $('.nav-categories-go-level-1').click(function (e) {
+                    showNavCategoriesLevel1();
+                    e.preventDefault();
+                });
+
+                $('.nav-categories-go-level-2').click(function (e) {
+                    var categoryId = $(this).data('id');
+                    showNavCategoriesLevel2(categoryId);
+                    e.preventDefault();
+                });
+
+            })
+        </script>
+
+        <div class="sidebar-section sidebar-search">
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Pesquisar</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <form action="https://templatestack.vercel.app/produtos" method="get" class="mt-5">
+                    <div class="form-group">
+                        <label>Buscar produto</label>
+                        <input type="text" class="form-control" name="term">
+                    </div>
+                    <button class="btn btn-primary btn-principal" type="submit">
+                        <i class="fa fa-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <div class="sidebar-section sidebar-account">
+    <div class="sidebar-header">
+        <h4 class="fonte-titulo">Minha conta</h4>
+        <i class="fas fa-times close-button close-sidebar"></i>
+    </div>
+    <div class="sidebar-content">
+                    <div class="mt-5">
+                <a href="https://templatestack.vercel.app/identificacao#cadastrar" class="btn btn-primary btn-principal d-block mt-4">
+                    Criar minha conta
+                </a>
+                <a href="https://templatestack.vercel.app/identificacao#login" class="btn btn-primary btn-principal d-block mt-4">
+                    Já tenho cadastro
+                </a>
+            </div>
+            </div>
+</div> -->
+
+        <div class="sidebar-section sidebar-cart">
+
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Carrinho</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+
+            <div class="sidebar-content mt-4">
+                <div class="cart">
+
+                    <p>Seu carrinho está vazio.</p>
+
+                </div>
+
+                <style>
+                    .cart .gift-label {}
+
+                    .cart .cart-item.gift {
+                        background-color: #fff;
+                        padding: 10px 10px 8px 10px !important;
+                    }
+
+                    .cart .form-qtd label {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 2px;
+                    }
+
+                    .cart .spinner-input-sm {
+                        max-width: 120px;
+                    }
+
+                    .cart .price {
+                        color: #777;
+                        font-weight: normal;
+                    }
+
+                    .cart .img-thumbnail {
+                        width: 80px;
+                    }
+
+                    .cart .one-column>div {
+                        max-width: 100%;
+                        flex: 100%;
+                    }
+
+                    .cart .form-qtd label {
+                        display: none;
+                    }
+
+                    .cart .btn-texto {
+                        display: block !important;
+                    }
+
+                    .cart .btn-botao {
+                        display: none;
+                    }
+
+                    .cart .col-price-del {
+                        width: 100%;
+                        max-width: 100%;
+                        margin-left: 0 !important;
+                        flex: 100%;
+                    }
+                </style>
+
+                <script>
+                    $(document).ready(function () {
+
+                        $(".spinner-input-sm").inputSpinner({ groupClass: "input-group-sm" })
+
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('.show-quote-form').click(function () {
+                    $('.form-quote-area, .qtd-hidden').show();
+                    $('.sidebar-cart .form-edit, .sidebar-cart .delete-column').hide();
+                    $(this).hide();
+                })
+            });
+        </script>
+
+
+    </div>
+
+    <style>
+        .sidebar .nav-link {
+            color: #333;
+            font-size: 18px;
+            display: block;
+            position: relative;
+        }
+
+        .sidebar .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+        }
+
+        .sidebar .dropdown-toggle::after {
+            position: absolute;
+            top: 21px;
+            right: 0;
+            font-size: 18px;
+        }
+
+        .sidebar-header {
+            position: relative;
+        }
+
+        .sidebar-header .close-button {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            top: 0px;
+            font-size: 20px;
+            background: #fff;
+            border-radius: 38px;
+            line-height: 35px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+
+        .sidebar-header h4 {
+            margin-top: 15px;
+        }
+
+	.main-post-img {
+          max-width: 900px;
+        }
+        
+        figcaption {
+          text-align: center;
+          margin-top: 7px;
+        }
+
+        /* mobile */
+        @media (max-width: 990px) {}
+    </style>
+
+    <script>
+        $(function () {
+            'use strict'
+            $('[data-toggle="offcanvas"]').on('click', function () {
+                $('.offcanvas-collapse').toggleClass('open');
+            });
+        });
+
+        function openSidebar(section) {
+            $('.offcanvas-collapse').removeClass('open');
+            $('.sidebar .sidebar-section').hide();
+            $('.sidebar .sidebar-' + section).show();
+            $('.offcanvas-collapse').addClass('open');
+            $('.offcanvas-bg-overlay').hide().fadeIn('slow');
+            $('html, body').addClass('overflow-hidden');
+        }
+
+        $(document).ready(function () {
+
+            $('.open-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('left');
+                if ($(this).data('from') == 'left') {
+                    $('.offcanvas-collapse').addClass('left');
+                }
+                openSidebar($(this).data('section'));
+                return false;
+            });
+
+            $('.close-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('open');
+                $('.offcanvas-bg-overlay').fadeOut('slow');
+                $('html, body').removeClass('overflow-hidden');
+                return false;
+            });
+
+
+        });
+    </script>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="box-meio">
+                <div class="page-title text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="h4 fonte-titulo text-center">Tema Ella para Shopify: como transformar um tema completo em uma loja clara, leve e pronta para vender</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="box-meio">
+
+                <div class="mb-5 pb-5">
+
+
+				<div id="conteudo" style="max-width: 600px; margin: 0px auto;">
+				
+
+<p>O <strong>tema Ella para Shopify</strong> é uma das alternativas mais completas para quem deseja criar uma loja virtual com aparência profissional, boa organização de catálogo e recursos comerciais prontos para uso. Ele permite montar vitrines, coleções, páginas de produto, menus avançados, banners promocionais, pop-ups, carrinho dinâmico e blocos de confiança com alto nível de personalização.</p>
+
+<p>Mas o grande diferencial do Ella também pode se tornar o seu maior risco: ele oferece muitas possibilidades. Quando tudo é ativado sem critério, a loja pode ficar visualmente poluída, pesada e difícil de navegar. Quando o tema é configurado com estratégia, ele pode ajudar a construir uma experiência de compra mais bonita, objetiva e orientada para conversão.</p>
+
+<p>Este guia apresenta uma nova forma de pensar o uso do Ella: não como um pacote de recursos para ativar, mas como uma estrutura comercial que precisa ser planejada. A ideia é mostrar como decidir se o tema faz sentido para o seu projeto, como organizar a loja, quais recursos priorizar, o que evitar e como preparar uma publicação mais segura.</p>
+
+<nav class="indice-conteudo">
+    <h2>Índice</h2>
+    <ol>
+        <li><a href="#visao-geral">Visão geral: o que torna o Ella um tema poderoso</a></li>
+        <li><a href="#decisao">Antes de instalar: como saber se o Ella é a escolha certa</a></li>
+        <li><a href="#modelo-loja">O modelo ideal de loja para usar o Ella</a></li>
+        <li><a href="#arquitetura">Arquitetura da loja: organize antes de decorar</a></li>
+        <li><a href="#produto">Página de produto: onde a venda realmente acontece</a></li>
+        <li><a href="#home">Home page: uma vitrine estratégica, não um catálogo infinito</a></li>
+        <li><a href="#menu">Menu, coleções e filtros: reduza o esforço do cliente</a></li>
+        <li><a href="#recursos">Recursos do Ella: o que ativar, limitar ou evitar</a></li>
+        <li><a href="#apps">Aplicativos externos: quando são necessários e quando atrapalham</a></li>
+        <li><a href="#mobile">Experiência mobile: a prioridade da configuração</a></li>
+        <li><a href="#performance">Performance: como manter a loja bonita sem deixá-la lenta</a></li>
+        <li><a href="#seo">SEO no Ella: estrutura, conteúdo e intenção de busca</a></li>
+        <li><a href="#confianca">Confiança: elementos que reduzem insegurança antes da compra</a></li>
+        <li><a href="#plano">Plano prático para configurar o Ella em etapas</a></li>
+        <li><a href="#erros">Erros comuns que prejudicam lojas feitas com o Ella</a></li>
+        <li><a href="#checklist">Checklist final antes de publicar</a></li>
+        <li><a href="#metricas">Métricas para acompanhar depois da publicação</a></li>
+        <li><a href="#faq">Perguntas frequentes sobre o tema Ella</a></li>
+        <li><a href="#conclusao">Conclusão</a></li>
+    </ol>
+</nav>
+
+<h2 id="visao-geral">1. Visão geral: o que torna o Ella um tema poderoso</h2>
+
+<p>O Ella é um tema multipropósito para Shopify. Isso significa que ele pode ser adaptado para diferentes segmentos, como moda, acessórios, beleza, cosméticos, decoração, pet shop, eletrônicos, utilidades domésticas, dropshipping e lojas com catálogos variados.</p>
+
+<p>Seu principal atrativo está na flexibilidade. O lojista consegue criar uma loja com aparência mais sofisticada sem começar do zero. O tema já oferece estruturas visuais e comerciais que ajudam a apresentar produtos, destacar campanhas, organizar categorias e reforçar confiança.</p>
+
+<p>No entanto, o Ella não deve ser escolhido apenas pela aparência das demonstrações prontas. Uma demo pode parecer perfeita, mas a loja real precisa considerar público, quantidade de produtos, velocidade, imagens, textos, políticas, mobile, aplicativos e fluxo de compra.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Característica do Ella</th>
+            <th>Benefício</th>
+            <th>Cuidado necessário</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Alta personalização visual</td>
+            <td>Permite criar uma loja com identidade própria.</td>
+            <td>Evitar excesso de cores, seções, banners e efeitos.</td>
+        </tr>
+        <tr>
+            <td>Múltiplos layouts</td>
+            <td>Facilita a adaptação para diferentes nichos.</td>
+            <td>Escolher um layout com base na estratégia, não apenas na estética.</td>
+        </tr>
+        <tr>
+            <td>Recursos comerciais nativos</td>
+            <td>Pode reduzir a necessidade de alguns aplicativos.</td>
+            <td>Verificar se cada recurso realmente melhora a experiência.</td>
+        </tr>
+        <tr>
+            <td>Boa estrutura para catálogos</td>
+            <td>Ajuda lojas com muitas categorias e variações.</td>
+            <td>Organizar menu, filtros e coleções com clareza.</td>
+        </tr>
+        <tr>
+            <td>Forte apelo visual</td>
+            <td>Valoriza produtos que dependem de imagem.</td>
+            <td>Otimizar imagens para não comprometer a velocidade.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>Ideia central:</strong> o Ella funciona melhor quando é usado com intenção. Ele não é apenas um tema bonito, mas uma estrutura que precisa ser simplificada, organizada e ajustada para vender.</p>
+
+<h2 id="decisao">2. Antes de instalar: como saber se o Ella é a escolha certa</h2>
+
+<p>Antes de instalar o tema, avalie se a loja realmente precisa de uma estrutura tão completa. Em alguns casos, o Ella será uma excelente escolha. Em outros, um tema mais simples pode entregar uma experiência melhor, mais rápida e mais fácil de administrar.</p>
+
+<h3>O Ella tende a ser uma boa escolha quando:</h3>
+
+<ul>
+    <li>A loja tem várias categorias, coleções ou linhas de produtos.</li>
+    <li>O visual dos produtos influencia diretamente a decisão de compra.</li>
+    <li>A marca precisa de páginas mais comerciais e personalizadas.</li>
+    <li>Há necessidade de destacar campanhas, lançamentos, kits ou ofertas.</li>
+    <li>O catálogo possui variações de cor, tamanho, modelo ou estilo.</li>
+    <li>A loja precisa transmitir uma aparência mais profissional desde o início.</li>
+    <li>O lojista deseja usar recursos nativos antes de instalar muitos apps.</li>
+</ul>
+
+<h3>O Ella pode não ser a melhor opção quando:</h3>
+
+<ul>
+    <li>A loja vende apenas um produto principal.</li>
+    <li>O catálogo é muito pequeno e simples.</li>
+    <li>O projeto exige publicação extremamente rápida.</li>
+    <li>A prioridade absoluta é usar o tema mais leve possível.</li>
+    <li>A marca tem uma proposta radicalmente minimalista.</li>
+    <li>A equipe não tem tempo para configurar, revisar e testar a loja.</li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pergunta de decisão</th>
+            <th>Quando a resposta favorece o Ella</th>
+            <th>Quando considerar outro tema</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Sua loja terá muitas categorias?</td>
+            <td>Sim, há necessidade de menu, filtros e coleções.</td>
+            <td>Não, há poucos produtos e navegação simples.</td>
+        </tr>
+        <tr>
+            <td>Você precisa de forte apelo visual?</td>
+            <td>Sim, imagens e vitrines influenciam a compra.</td>
+            <td>Não, a venda depende mais de texto direto ou formulário.</td>
+        </tr>
+        <tr>
+            <td>Você fará campanhas frequentes?</td>
+            <td>Sim, haverá lançamentos, ofertas e coleções sazonais.</td>
+            <td>Não, a loja terá pouca mudança visual.</td>
+        </tr>
+        <tr>
+            <td>Você tem tempo para configurar?</td>
+            <td>Sim, é possível revisar detalhes antes de publicar.</td>
+            <td>Não, a loja precisa ir ao ar com configuração mínima.</td>
+        </tr>
+        <tr>
+            <td>Seu público compra muito pelo celular?</td>
+            <td>Sim, desde que o mobile seja prioridade na configuração.</td>
+            <td>Não há problema em usar Ella, mas o mobile ainda deve ser testado.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="modelo-loja">3. O modelo ideal de loja para usar o Ella</h2>
+
+<p>O Ella é especialmente útil para lojas que precisam unir visual, organização e variedade. Ele se encaixa melhor em projetos nos quais o cliente precisa explorar categorias, comparar produtos, analisar variações e receber estímulos de confiança antes de comprar.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo de loja</th>
+            <th>Como o Ella ajuda</th>
+            <th>Prioridade de configuração</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Moda e acessórios</td>
+            <td>Valoriza coleções, looks, variações, imagens e guias de tamanho.</td>
+            <td>Fotos, variações, tabela de medidas e produtos relacionados.</td>
+        </tr>
+        <tr>
+            <td>Beleza e cosméticos</td>
+            <td>Permite destacar benefícios, rotinas, kits e prova social.</td>
+            <td>Descrições claras, avaliações, kits e blocos de benefícios.</td>
+        </tr>
+        <tr>
+            <td>Casa e decoração</td>
+            <td>Facilita a organização por ambiente, estilo ou finalidade.</td>
+            <td>Coleções visuais, fotos ambientadas e filtros úteis.</td>
+        </tr>
+        <tr>
+            <td>Pet shop</td>
+            <td>Ajuda a dividir produtos por animal, porte, idade e necessidade.</td>
+            <td>Mega menu, categorias objetivas e produtos complementares.</td>
+        </tr>
+        <tr>
+            <td>Eletrônicos e acessórios</td>
+            <td>Ajuda a explicar compatibilidade, especificações e diferenças.</td>
+            <td>Tabelas técnicas, FAQ, filtros e descrição detalhada.</td>
+        </tr>
+        <tr>
+            <td>Dropshipping de nicho</td>
+            <td>Oferece flexibilidade para testar coleções e campanhas.</td>
+            <td>Página de produto forte, prova social e controle de apps.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Uma boa regra é simples: quanto mais a loja depende de imagem, variedade e organização de catálogo, mais sentido o Ella tende a fazer. Quanto mais direta e pequena for a operação, maior deve ser o cuidado para não usar uma estrutura maior do que o necessário.</p>
+
+<h2 id="arquitetura">4. Arquitetura da loja: organize antes de decorar</h2>
+
+<p>Antes de ajustar cores, fontes e banners, defina a arquitetura da loja. Uma loja bonita, mas mal organizada, gera dúvida. E dúvida reduz conversão.</p>
+
+<p>A arquitetura deve responder a quatro perguntas principais:</p>
+
+<ul>
+    <li>O visitante entende rapidamente o que a loja vende?</li>
+    <li>Ele sabe onde clicar para encontrar o que procura?</li>
+    <li>As categorias fazem sentido para o público?</li>
+    <li>O caminho entre produto, carrinho e checkout é simples?</li>
+</ul>
+
+<h3>Estrutura recomendada para uma loja com Ella</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Área</th>
+            <th>Função</th>
+            <th>Como deve ser pensada</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Home</td>
+            <td>Apresentar proposta, categorias e campanhas principais.</td>
+            <td>Deve orientar, não mostrar tudo.</td>
+        </tr>
+        <tr>
+            <td>Menu</td>
+            <td>Guiar o visitante pelas categorias mais importantes.</td>
+            <td>Deve ser simples, direto e previsível.</td>
+        </tr>
+        <tr>
+            <td>Coleções</td>
+            <td>Agrupar produtos por interesse, uso, categoria ou campanha.</td>
+            <td>Devem facilitar comparação e descoberta.</td>
+        </tr>
+        <tr>
+            <td>Produto</td>
+            <td>Explicar, convencer e conduzir à compra.</td>
+            <td>Deve ser a página mais bem trabalhada da loja.</td>
+        </tr>
+        <tr>
+            <td>Carrinho</td>
+            <td>Confirmar itens, valores e próximos passos.</td>
+            <td>Deve ser limpo, confiável e sem distrações.</td>
+        </tr>
+        <tr>
+            <td>Políticas</td>
+            <td>Informar entrega, troca, reembolso e privacidade.</td>
+            <td>Devem estar acessíveis no rodapé e em pontos de dúvida.</td>
+        </tr>
+        <tr>
+            <td>Atendimento</td>
+            <td>Reduzir insegurança e facilitar contato.</td>
+            <td>Deve ser visível sem atrapalhar a navegação.</td>
+        </tr>
+        <tr>
+            <td>Sobre a marca</td>
+            <td>Construir contexto, autoridade e confiança.</td>
+            <td>Deve explicar quem vende e por que confiar.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>O objetivo não é impressionar o visitante com muitos elementos. O objetivo é fazer com que ele avance com segurança.</p>
+
+<h2 id="produto">5. Página de produto: onde a venda realmente acontece</h2>
+
+<p>A página de produto deve receber mais atenção do que qualquer outra parte da loja. É nela que o cliente analisa o item, compara opções, avalia preço, procura informações de entrega, verifica confiança e decide se vai comprar.</p>
+
+<p>No Ella, é possível criar páginas de produto ricas em detalhes. Mas uma página completa não significa uma página carregada. A informação precisa aparecer em ordem lógica, com foco no que reduz dúvidas e aumenta confiança.</p>
+
+<h3>Ordem recomendada para a página de produto</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Elemento</th>
+            <th>Objetivo</th>
+            <th>Boa prática</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Galeria de imagens</td>
+            <td>Mostrar produto, detalhes, escala e uso real.</td>
+            <td>Use imagens claras, leves e com ângulos variados.</td>
+        </tr>
+        <tr>
+            <td>Título do produto</td>
+            <td>Identificar rapidamente o item.</td>
+            <td>Evite títulos genéricos ou longos demais.</td>
+        </tr>
+        <tr>
+            <td>Preço e condições</td>
+            <td>Comunicar valor, desconto, parcelamento ou oferta.</td>
+            <td>Mostre o essencial sem excesso de chamadas.</td>
+        </tr>
+        <tr>
+            <td>Variações</td>
+            <td>Permitir escolha de cor, tamanho, modelo ou quantidade.</td>
+            <td>Garanta que tudo seja fácil de tocar no celular.</td>
+        </tr>
+        <tr>
+            <td>Resumo de benefícios</td>
+            <td>Explicar rapidamente por que o produto vale a pena.</td>
+            <td>Comece pelo resultado que o cliente deseja.</td>
+        </tr>
+        <tr>
+            <td>Botão de compra</td>
+            <td>Conduzir à ação principal.</td>
+            <td>Deixe visível, claro e sem concorrência visual.</td>
+        </tr>
+        <tr>
+            <td>Entrega, troca e garantia</td>
+            <td>Reduzir insegurança antes da compra.</td>
+            <td>Use mensagens objetivas e confiáveis.</td>
+        </tr>
+        <tr>
+            <td>Descrição completa</td>
+            <td>Detalhar características, materiais, medidas e uso.</td>
+            <td>Organize com subtítulos, listas e tabelas.</td>
+        </tr>
+        <tr>
+            <td>Avaliações</td>
+            <td>Reforçar confiança com prova social.</td>
+            <td>Priorize avaliações reais e relevantes.</td>
+        </tr>
+        <tr>
+            <td>Produtos relacionados</td>
+            <td>Aumentar descoberta e ticket médio.</td>
+            <td>Mostre itens complementares, não aleatórios.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Modelo melhorado de descrição de produto</h3>
+
+<p>Uma boa descrição não deve apenas listar características. Ela precisa conectar produto, benefício, uso e segurança de compra.</p>
+
+<ul>
+    <li><strong>Resumo inicial:</strong> explique o que é o produto e para quem ele serve.</li>
+    <li><strong>Benefício principal:</strong> mostre qual problema ele resolve ou qual desejo atende.</li>
+    <li><strong>Diferenciais:</strong> destaque materiais, design, tecnologia, acabamento ou praticidade.</li>
+    <li><strong>Como usar:</strong> explique o uso ideal quando isso ajuda na decisão.</li>
+    <li><strong>Medidas ou especificações:</strong> apresente dados objetivos em tabela quando necessário.</li>
+    <li><strong>Conteúdo da embalagem:</strong> informe exatamente o que o cliente receberá.</li>
+    <li><strong>Cuidados:</strong> indique conservação, limpeza, compatibilidade ou restrições.</li>
+    <li><strong>Compra segura:</strong> reforce entrega, troca, garantia e atendimento.</li>
+</ul>
+
+<h2 id="home">6. Home page: uma vitrine estratégica, não um catálogo infinito</h2>
+
+<p>A página inicial deve apresentar a marca e conduzir o visitante para as principais áreas da loja. Ela não precisa exibir todos os produtos, todas as promoções e todas as mensagens ao mesmo tempo.</p>
+
+<p>O erro mais comum em lojas feitas com temas completos é transformar a home em uma sequência longa de banners, carrosséis, vitrines e blocos promocionais. Isso pode confundir o visitante e diluir a mensagem principal.</p>
+
+<h3>Estrutura recomendada para a home</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ordem</th>
+            <th>Seção</th>
+            <th>Função</th>
+            <th>Como melhorar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Topo com proposta clara</td>
+            <td>Explicar o que a loja vende e por que isso importa.</td>
+            <td>Use uma frase direta, imagem forte e botão objetivo.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Categorias principais</td>
+            <td>Ajudar o visitante a escolher um caminho.</td>
+            <td>Mostre poucas categorias com nomes fáceis.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Produtos estratégicos</td>
+            <td>Destacar mais vendidos, lançamentos ou itens prioritários.</td>
+            <td>Evite vitrines muito extensas.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Diferenciais da loja</td>
+            <td>Reduzir dúvidas sobre entrega, pagamento, troca e suporte.</td>
+            <td>Use mensagens curtas e específicas.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Campanha principal</td>
+            <td>Dar foco a uma oferta, coleção ou lançamento.</td>
+            <td>Trabalhe uma mensagem por bloco.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Prova social</td>
+            <td>Mostrar que outras pessoas confiam na loja.</td>
+            <td>Use avaliações, depoimentos ou números reais.</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Chamada final</td>
+            <td>Levar para coleção, compra ou cadastro.</td>
+            <td>Finalize com um CTA simples.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>A home deve funcionar como uma entrada organizada para a loja. O visitante não precisa ver tudo ali. Ele precisa entender onde está, confiar na marca e saber qual é o próximo passo.</p>
+
+<h2 id="menu">7. Menu, coleções e filtros: reduza o esforço do cliente</h2>
+
+<p>O Ella oferece recursos interessantes de navegação, especialmente para lojas com catálogos médios ou grandes. Mas o menu só ajuda quando é simples o suficiente para ser entendido rapidamente.</p>
+
+<h3>Como montar um menu eficiente</h3>
+
+<ul>
+    <li>Use nomes de categorias conhecidos pelo público.</li>
+    <li>Evite criar muitos níveis de subcategorias.</li>
+    <li>Coloque as coleções mais importantes nos primeiros níveis.</li>
+    <li>Use mega menu apenas quando houver volume real de categorias.</li>
+    <li>Não misture links institucionais demais no menu principal.</li>
+    <li>Leve políticas, rastreamento, atendimento e termos para o rodapé.</li>
+</ul>
+
+<h3>Formas inteligentes de organizar coleções</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo de coleção</th>
+            <th>Exemplos</th>
+            <th>Quando usar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Por categoria</td>
+            <td>Roupas, calçados, acessórios, decoração, eletrônicos.</td>
+            <td>Quando o catálogo tem divisões tradicionais.</td>
+        </tr>
+        <tr>
+            <td>Por uso</td>
+            <td>Trabalho, viagem, treino, presente, rotina.</td>
+            <td>Quando o cliente compra por ocasião ou necessidade.</td>
+        </tr>
+        <tr>
+            <td>Por público</td>
+            <td>Feminino, masculino, infantil, profissional, pet.</td>
+            <td>Quando existem públicos com interesses diferentes.</td>
+        </tr>
+        <tr>
+            <td>Por benefício</td>
+            <td>Conforto, praticidade, proteção, organização, beleza.</td>
+            <td>Quando o valor do produto está no resultado.</td>
+        </tr>
+        <tr>
+            <td>Por campanha</td>
+            <td>Mais vendidos, lançamentos, ofertas, kits, coleção especial.</td>
+            <td>Quando há ações comerciais recorrentes.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Boas práticas para páginas de coleção</h3>
+
+<ul>
+    <li>Use um título claro e direto.</li>
+    <li>Inclua uma descrição curta para contextualizar a categoria.</li>
+    <li>Evite banners grandes demais no topo, principalmente no celular.</li>
+    <li>Use filtros úteis, como preço, tamanho, cor, modelo, material ou finalidade.</li>
+    <li>Ordene os produtos com intenção comercial, destacando itens mais relevantes.</li>
+    <li>Evite coleções vazias, repetidas ou com nomes confusos.</li>
+</ul>
+
+<h2 id="recursos">8. Recursos do Ella: o que ativar, limitar ou evitar</h2>
+
+<p>O Ella oferece muitos recursos, mas uma boa loja não usa tudo. Ela usa apenas o que melhora navegação, confiança, clareza ou conversão.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Recurso</th>
+            <th>Melhor uso</th>
+            <th>Use com moderação quando</th>
+            <th>Evite quando</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mega menu</td>
+            <td>Organizar catálogos médios ou grandes.</td>
+            <td>Há muitas subcategorias.</td>
+            <td>A loja tem poucos produtos.</td>
+        </tr>
+        <tr>
+            <td>Banners promocionais</td>
+            <td>Destacar campanha, coleção ou lançamento.</td>
+            <td>Existem muitas ofertas simultâneas.</td>
+            <td>Os banners competem entre si.</td>
+        </tr>
+        <tr>
+            <td>Carrosséis</td>
+            <td>Mostrar poucos destaques visuais.</td>
+            <td>A primeira dobra depende deles.</td>
+            <td>Há muitos slides e baixa interação.</td>
+        </tr>
+        <tr>
+            <td>Pop-up</td>
+            <td>Capturar e-mail ou comunicar benefício real.</td>
+            <td>A loja recebe muito tráfego mobile.</td>
+            <td>Ele bloqueia a navegação imediatamente.</td>
+        </tr>
+        <tr>
+            <td>Carrinho dinâmico</td>
+            <td>Facilitar compra de múltiplos itens.</td>
+            <td>Há apps de checkout ou upsell instalados.</td>
+            <td>Gera conflito com outros scripts.</td>
+        </tr>
+        <tr>
+            <td>Produtos relacionados</td>
+            <td>Aumentar descoberta e ticket médio.</td>
+            <td>As recomendações são genéricas.</td>
+            <td>Os produtos não têm relação real.</td>
+        </tr>
+        <tr>
+            <td>Guia de tamanho</td>
+            <td>Reduzir dúvidas e trocas.</td>
+            <td>As medidas variam por fornecedor.</td>
+            <td>As informações não são confiáveis.</td>
+        </tr>
+        <tr>
+            <td>Blocos de confiança</td>
+            <td>Reforçar segurança, entrega, troca e suporte.</td>
+            <td>Há muitas mensagens repetidas.</td>
+            <td>As promessas são vagas ou exageradas.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Uma boa configuração do Ella começa por cortes. Remova tudo que não tem função clara. Depois, destaque o que realmente ajuda o cliente a comprar.</p>
+
+<h2 id="apps">9. Aplicativos externos: quando são necessários e quando atrapalham</h2>
+
+<p>Uma das vantagens de um tema completo é que algumas funções podem ser resolvidas dentro do próprio tema. Isso ajuda a reduzir scripts, custos e conflitos. Ainda assim, aplicativos externos continuam importantes quando a loja precisa de recursos mais avançados.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Função</th>
+            <th>O Ella pode ajudar?</th>
+            <th>Quando usar aplicativo</th>
+            <th>Risco do excesso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Banners e vitrines</td>
+            <td>Sim</td>
+            <td>Raramente necessário.</td>
+            <td>Baixo</td>
+        </tr>
+        <tr>
+            <td>Pop-ups simples</td>
+            <td>Sim</td>
+            <td>Quando precisar de segmentação ou automação.</td>
+            <td>Médio</td>
+        </tr>
+        <tr>
+            <td>Avaliações</td>
+            <td>Parcialmente</td>
+            <td>Para reviews com fotos, perguntas e automações.</td>
+            <td>Médio</td>
+        </tr>
+        <tr>
+            <td>Upsell e cross-sell avançado</td>
+            <td>Parcialmente</td>
+            <td>Quando houver estratégia clara de ticket médio.</td>
+            <td>Alto</td>
+        </tr>
+        <tr>
+            <td>E-mail marketing</td>
+            <td>Não</td>
+            <td>Para fluxos, campanhas e recuperação de carrinho.</td>
+            <td>Baixo</td>
+        </tr>
+        <tr>
+            <td>Atendimento</td>
+            <td>Não</td>
+            <td>Para chat, WhatsApp, helpdesk ou central de suporte.</td>
+            <td>Médio</td>
+        </tr>
+        <tr>
+            <td>Rastreamento e logística</td>
+            <td>Não</td>
+            <td>Para integração com transportadoras e pedidos.</td>
+            <td>Baixo</td>
+        </tr>
+        <tr>
+            <td>Urgência e escassez</td>
+            <td>Parcialmente</td>
+            <td>Somente em campanhas reais.</td>
+            <td>Alto</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Antes de instalar um app, faça três perguntas:</p>
+
+<ul>
+    <li>O tema já resolve essa função?</li>
+    <li>Esse aplicativo melhora a experiência ou apenas adiciona distração?</li>
+    <li>O impacto em velocidade, custo e manutenção vale a pena?</li>
+</ul>
+
+<h2 id="mobile">10. Experiência mobile: a prioridade da configuração</h2>
+
+<p>A loja pode parecer excelente no desktop e ainda assim falhar no celular. Como grande parte da navegação em e-commerce acontece em telas pequenas, o mobile deve ser prioridade desde o início.</p>
+
+<p>No Ella, banners, menus, filtros, pop-ups, botões e imagens precisam ser testados em telas reais. Não basta verificar apenas no editor do tema.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Área mobile</th>
+            <th>O que verificar</th>
+            <th>Sinal de problema</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Banner principal</td>
+            <td>Texto legível, botão visível e imagem bem cortada.</td>
+            <td>Texto pequeno, imagem cortada ou CTA escondido.</td>
+        </tr>
+        <tr>
+            <td>Menu</td>
+            <td>Categorias fáceis de abrir, tocar e entender.</td>
+            <td>Muitos níveis ou links pequenos demais.</td>
+        </tr>
+        <tr>
+            <td>Coleções</td>
+            <td>Filtros acessíveis e produtos bem organizados.</td>
+            <td>Cliente precisa rolar demais antes de ver produtos.</td>
+        </tr>
+        <tr>
+            <td>Produto</td>
+            <td>Preço, variações e botão de compra visíveis.</td>
+            <td>Informações importantes ficam escondidas.</td>
+        </tr>
+        <tr>
+            <td>Pop-up</td>
+            <td>Fechamento fácil e mensagem objetiva.</td>
+            <td>Bloqueia a tela ou dificulta a navegação.</td>
+        </tr>
+        <tr>
+            <td>Carrinho</td>
+            <td>Itens, valores, frete e checkout claros.</td>
+            <td>Dificuldade para alterar quantidade ou finalizar.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Ao revisar a loja no celular, simule uma compra completa: entrar pela home, abrir o menu, acessar uma coleção, filtrar produtos, escolher variação, adicionar ao carrinho e chegar ao checkout.</p>
+
+<h2 id="performance">11. Performance: como manter a loja bonita sem deixá-la lenta</h2>
+
+<p>O Ella pode entregar uma loja visualmente forte, mas a performance depende da configuração. Imagens pesadas, aplicativos duplicados, vídeos automáticos, fontes externas e excesso de seções podem prejudicar a velocidade.</p>
+
+<h3>Principais causas de lentidão</h3>
+
+<ul>
+    <li>Imagens grandes sem compressão.</li>
+    <li>Banners muito pesados na primeira dobra.</li>
+    <li>Carrosséis em excesso.</li>
+    <li>Vídeos carregando automaticamente.</li>
+    <li>Pop-ups abrindo logo no primeiro acesso.</li>
+    <li>Aplicativos com funções duplicadas.</li>
+    <li>Scripts de chat, rastreamento e marketing sem revisão.</li>
+    <li>Fontes externas demais.</li>
+    <li>Animações sem função comercial.</li>
+</ul>
+
+<h3>Prioridades de otimização</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ação</th>
+            <th>Impacto esperado</th>
+            <th>Prioridade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Comprimir imagens antes do upload</td>
+            <td>Reduz o peso das páginas.</td>
+            <td>Alta</td>
+        </tr>
+        <tr>
+            <td>Reduzir carrosséis</td>
+            <td>Melhora clareza visual e carregamento.</td>
+            <td>Alta</td>
+        </tr>
+        <tr>
+            <td>Remover apps duplicados</td>
+            <td>Diminui scripts, custos e conflitos.</td>
+            <td>Alta</td>
+        </tr>
+        <tr>
+            <td>Evitar vídeos automáticos</td>
+            <td>Melhora principalmente a experiência mobile.</td>
+            <td>Alta</td>
+        </tr>
+        <tr>
+            <td>Controlar pop-ups</td>
+            <td>Reduz interrupções e rejeição.</td>
+            <td>Média</td>
+        </tr>
+        <tr>
+            <td>Revisar fontes e animações</td>
+            <td>Deixa a interface mais leve e consistente.</td>
+            <td>Média</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>A meta não é ter a loja mais simples possível. A meta é manter apenas os elementos que ajudam a experiência, a confiança ou a venda.</p>
+
+<h2 id="seo">12. SEO no Ella: estrutura, conteúdo e intenção de busca</h2>
+
+<p>O tema ajuda na apresentação da loja, mas o SEO depende principalmente de conteúdo, organização, velocidade, estrutura de títulos, links internos e experiência do usuário.</p>
+
+<p>Não basta instalar um tema bonito e esperar tráfego orgânico. Cada página importante precisa ter uma função clara e responder a uma intenção de busca.</p>
+
+<h3>Boas práticas de SEO para lojas com Ella</h3>
+
+<ul>
+    <li>Use apenas um H1 por página.</li>
+    <li>Organize H2 e H3 de forma lógica.</li>
+    <li>Crie descrições originais para produtos e coleções.</li>
+    <li>Evite copiar textos de fornecedores.</li>
+    <li>Use URLs curtas, limpas e descritivas.</li>
+    <li>Configure títulos e meta descrições das páginas principais.</li>
+    <li>Adicione texto alternativo nas imagens.</li>
+    <li>Crie links internos entre produtos, coleções e conteúdos relacionados.</li>
+    <li>Inclua textos úteis nas páginas de coleção.</li>
+    <li>Priorize velocidade e boa navegação mobile.</li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Página</th>
+            <th>Conteúdo recomendado</th>
+            <th>Objetivo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Home</td>
+            <td>Proposta da marca, categorias principais e diferenciais.</td>
+            <td>Orientar o visitante e distribuir links internos.</td>
+        </tr>
+        <tr>
+            <td>Coleções</td>
+            <td>Texto curto sobre categoria, usos, benefícios e critérios de escolha.</td>
+            <td>Dar contexto para usuários e mecanismos de busca.</td>
+        </tr>
+        <tr>
+            <td>Produtos</td>
+            <td>Descrição completa, benefícios, características, medidas e dúvidas comuns.</td>
+            <td>Converter melhor e ranquear para buscas específicas.</td>
+        </tr>
+        <tr>
+            <td>Blog ou guias</td>
+            <td>Tutoriais, comparativos, listas e guias de compra.</td>
+            <td>Atrair tráfego orgânico e apoiar a decisão de compra.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="confianca">13. Confiança: elementos que reduzem insegurança antes da compra</h2>
+
+<p>Uma loja pode ter ótimo design e ainda assim não vender bem se o visitante não confiar nela. No e-commerce, confiança precisa aparecer nos pontos certos: produto, carrinho, rodapé, políticas e atendimento.</p>
+
+<h3>Elementos essenciais de confiança</h3>
+
+<ul>
+    <li>Informações claras sobre entrega e prazos.</li>
+    <li>Política de troca e reembolso acessível.</li>
+    <li>Formas de pagamento visíveis.</li>
+    <li>Contato ou canal de atendimento fácil de encontrar.</li>
+    <li>Avaliações reais de clientes.</li>
+    <li>Página “Sobre” com contexto da marca.</li>
+    <li>Informações de garantia quando aplicável.</li>
+    <li>Rodapé completo com links institucionais.</li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ponto da loja</th>
+            <th>Mensagem de confiança recomendada</th>
+            <th>Objetivo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Topo ou barra informativa</td>
+            <td>Frete, promoção ativa ou benefício principal.</td>
+            <td>Comunicar uma vantagem rapidamente.</td>
+        </tr>
+        <tr>
+            <td>Página de produto</td>
+            <td>Entrega, troca, garantia e compra segura.</td>
+            <td>Reduzir objeções antes do clique no botão.</td>
+        </tr>
+        <tr>
+            <td>Carrinho</td>
+            <td>Resumo claro de itens, valores e próximos passos.</td>
+            <td>Evitar abandono por confusão.</td>
+        </tr>
+        <tr>
+            <td>Rodapé</td>
+            <td>Políticas, atendimento, rastreamento e dados institucionais.</td>
+            <td>Dar suporte à decisão de compra.</td>
+        </tr>
+        <tr>
+            <td>Página Sobre</td>
+            <td>História, proposta e diferenciais da marca.</td>
+            <td>Humanizar a loja e aumentar credibilidade.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Evite promessas vagas como “compra 100% garantida” sem explicar o que isso significa. Confiança vem de clareza, consistência e informação verificável.</p>
+
+<h2 id="plano">14. Plano prático para configurar o Ella em etapas</h2>
+
+<p>A melhor forma de configurar o Ella é trabalhar em fases. Isso evita que a loja fique pesada, desorganizada ou cheia de recursos ativados sem necessidade.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Etapa</th>
+            <th>O que fazer</th>
+            <th>Resultado esperado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1. Estratégia</td>
+            <td>Definir nicho, público, proposta, categorias e produtos prioritários.</td>
+            <td>Loja com direção clara antes do design.</td>
+        </tr>
+        <tr>
+            <td>2. Arquitetura</td>
+            <td>Criar menu, coleções, rodapé, páginas institucionais e políticas.</td>
+            <td>Navegação organizada e confiável.</td>
+        </tr>
+        <tr>
+            <td>3. Produto</td>
+            <td>Configurar imagens, descrições, variações, preço, entrega e blocos de confiança.</td>
+            <td>Páginas de produto mais completas e persuasivas.</td>
+        </tr>
+        <tr>
+            <td>4. Home</td>
+            <td>Montar uma vitrine com proposta, categorias, destaques e prova social.</td>
+            <td>Entrada clara para a jornada de compra.</td>
+        </tr>
+        <tr>
+            <td>5. Identidade visual</td>
+            <td>Ajustar cores, fontes, banners, espaçamentos e estilo visual.</td>
+            <td>Loja coerente com a marca.</td>
+        </tr>
+        <tr>
+            <td>6. Conversão</td>
+            <td>Ativar avaliações, relacionados, ofertas e chamadas estratégicas.</td>
+            <td>Maior potencial de compra e ticket médio.</td>
+        </tr>
+        <tr>
+            <td>7. Performance</td>
+            <td>Comprimir imagens, reduzir apps, revisar scripts e testar velocidade.</td>
+            <td>Loja mais leve e eficiente.</td>
+        </tr>
+        <tr>
+            <td>8. Testes finais</td>
+            <td>Simular compra, testar mobile, carrinho, checkout, links e formulários.</td>
+            <td>Publicação com menor risco de erro.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="erros">15. Erros comuns que prejudicam lojas feitas com o Ella</h2>
+
+<h3>1. Ativar recursos sem estratégia</h3>
+<p>O Ella oferece muitas opções, mas nem todas são necessárias. Excesso de seções, banners, pop-ups, carrosséis e animações pode prejudicar a navegação e a velocidade.</p>
+
+<h3>2. Copiar uma demo sem adaptar à marca</h3>
+<p>As demonstrações são boas referências, mas a loja precisa ter identidade própria. Textos, imagens, categorias e chamadas devem refletir a proposta real do negócio.</p>
+
+<h3>3. Dar atenção demais à home e esquecer o produto</h3>
+<p>A home apresenta a loja, mas a decisão de compra normalmente acontece na página de produto. Essa página precisa ser clara, completa e confiável.</p>
+
+<h3>4. Usar imagens pesadas</h3>
+<p>Como o Ella valoriza bastante o visual, imagens mal otimizadas podem deixar a loja lenta, principalmente no celular.</p>
+
+<h3>5. Instalar aplicativos sem necessidade</h3>
+<p>Apps duplicados aumentam custos, scripts e risco de conflitos. Antes de instalar, verifique se o tema já entrega a função desejada.</p>
+
+<h3>6. Criar urgência falsa</h3>
+<p>Contadores regressivos, alertas de estoque e mensagens de escassez devem ser usados com honestidade. Urgência falsa pode prejudicar a confiança.</p>
+
+<h3>7. Criar menus complexos demais</h3>
+<p>Um menu grande não é necessariamente um menu bom. O cliente precisa entender rapidamente onde clicar.</p>
+
+<h3>8. Não testar a jornada completa</h3>
+<p>Uma loja pode parecer pronta visualmente e ainda ter problemas em variações, botões, carrinho, checkout, filtros, links ou formulários.</p>
+
+<h2 id="checklist">16. Checklist final antes de publicar</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Área</th>
+            <th>Verificação</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Proposta</td>
+            <td>A loja comunica rapidamente o que vende e para quem?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Home</td>
+            <td>A primeira dobra tem mensagem clara, imagem adequada e botão objetivo?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Menu</td>
+            <td>As categorias estão organizadas e fáceis de entender?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Coleções</td>
+            <td>Os produtos estão bem agrupados e com filtros úteis?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Produto</td>
+            <td>As páginas explicam benefícios, características, variações, entrega e troca?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Imagens</td>
+            <td>As imagens foram comprimidas e estão em dimensões adequadas?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>A loja foi testada em celulares reais?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Pop-ups</td>
+            <td>Os pop-ups têm fechamento fácil e não bloqueiam a navegação?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Carrinho</td>
+            <td>O carrinho permite revisar itens, quantidades e valores com clareza?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Checkout</td>
+            <td>Uma compra completa foi simulada?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Políticas</td>
+            <td>Entrega, troca, reembolso, privacidade e termos estão acessíveis?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Apps</td>
+            <td>Todos os aplicativos instalados são realmente necessários?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>SEO</td>
+            <td>Títulos, meta descrições, URLs, H1, H2 e textos alternativos foram revisados?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>A velocidade foi testada após a configuração final?</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Confiança</td>
+            <td>A loja mostra informações claras sobre pagamento, entrega, troca e atendimento?</td>
+            <td>☐</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="metricas">17. Métricas para acompanhar depois da publicação</h2>
+
+<p>A publicação da loja não encerra o trabalho. Depois que o Ella estiver no ar, os ajustes devem ser feitos com base no comportamento real dos visitantes.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Métrica</th>
+            <th>O que indica</th>
+            <th>Possível ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Taxa de conversão</td>
+            <td>Quantos visitantes compram.</td>
+            <td>Melhorar oferta, confiança, produto e checkout.</td>
+        </tr>
+        <tr>
+            <td>Abandono de carrinho</td>
+            <td>Quantos adicionam ao carrinho e não finalizam.</td>
+            <td>Revisar frete, prazo, preço, segurança e checkout.</td>
+        </tr>
+        <tr>
+            <td>Tempo de carregamento</td>
+            <td>Velocidade percebida pelo usuário.</td>
+            <td>Comprimir imagens, remover apps e reduzir scripts.</td>
+        </tr>
+        <tr>
+            <td>Cliques no menu</td>
+            <td>Se a navegação está sendo usada.</td>
+            <td>Reorganizar categorias e destacar coleções importantes.</td>
+        </tr>
+        <tr>
+            <td>Produtos mais acessados</td>
+            <td>Quais itens geram mais interesse.</td>
+            <td>Melhorar fotos, descrições, preços e ofertas desses produtos.</td>
+        </tr>
+        <tr>
+            <td>Pesquisa interna</td>
+            <td>O que os clientes procuram dentro da loja.</td>
+            <td>Criar coleções, produtos ou conteúdos com base nas buscas.</td>
+        </tr>
+        <tr>
+            <td>Taxa de saída em páginas de produto</td>
+            <td>Produtos que geram dúvida ou pouca confiança.</td>
+            <td>Revisar imagens, descrição, preço, avaliações e entrega.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="faq">18. Perguntas frequentes sobre o tema Ella</h2>
+
+<h3>O tema Ella é bom para Shopify?</h3>
+<p>Sim. O Ella pode ser uma boa opção para lojas Shopify que precisam de visual profissional, personalização e boa estrutura para catálogos médios ou grandes. Ele exige atenção à velocidade, à experiência mobile e à organização das páginas.</p>
+
+<h3>O Ella é indicado para iniciantes?</h3>
+<p>Pode ser usado por iniciantes, mas não é o tema mais simples. Como possui muitas opções, o ideal é configurar em etapas e evitar ativar recursos sem necessidade.</p>
+
+<h3>O tema Ella é rápido?</h3>
+<p>Ele pode ter bom desempenho quando bem configurado. Porém, imagens pesadas, apps duplicados, carrosséis, scripts externos e pop-ups podem prejudicar a velocidade.</p>
+
+<h3>O Ella serve para dropshipping?</h3>
+<p>Sim. Ele pode funcionar bem em lojas de dropshipping com catálogo variado, produtos visuais e necessidade de testar coleções. Para lojas de produto único, pode ser mais completo do que o necessário.</p>
+
+<h3>Preciso instalar muitos aplicativos usando o Ella?</h3>
+<p>Não necessariamente. O tema já oferece vários recursos nativos. Ainda assim, aplicativos podem ser necessários para avaliações avançadas, e-mail marketing, atendimento, logística, rastreamento e automações.</p>
+
+<h3>Qual é o maior cuidado ao usar o Ella?</h3>
+<p>O maior cuidado é evitar excesso. Use apenas recursos que ajudam a navegação, a confiança ou a conversão. Uma loja clara e leve tende a funcionar melhor do que uma loja cheia de efeitos.</p>
+
+<h3>O Ella é melhor que um tema gratuito da Shopify?</h3>
+<p>Depende do projeto. O Ella oferece mais recursos e flexibilidade visual. Temas gratuitos podem ser mais simples, leves e rápidos de configurar. A escolha deve considerar catálogo, orçamento, prazo e nível de personalização desejado.</p>
+
+<h2 id="conclusao">19. Conclusão</h2>
+
+<p>O tema Ella para Shopify é uma escolha forte para lojistas que desejam criar uma loja visualmente atrativa, personalizável e preparada para trabalhar catálogos mais completos. Ele oferece recursos úteis para vitrines, coleções, páginas de produto, menus, campanhas promocionais e elementos de confiança.</p>
+
+<p>Seu maior benefício está na combinação entre flexibilidade visual e estrutura comercial. Isso permite montar uma loja com aparência profissional e reduzir a dependência de alguns aplicativos externos.</p>
+
+<p>Ao mesmo tempo, o Ella exige critério. Uma configuração com muitas seções, imagens pesadas, apps duplicados, pop-ups excessivos e menus confusos pode prejudicar a experiência de compra.</p>
+
+<p><strong>Em resumo:</strong> o Ella vale a pena quando é usado com estratégia. Ele funciona melhor em lojas visuais, catálogos médios ou grandes e marcas que precisam trabalhar coleções, campanhas e páginas comerciais bem estruturadas. Para obter bons resultados, mantenha a loja leve, organizada, objetiva e pensada principalmente para o mobile.</p>
+
+				  
+				</div>
+			
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="container pt-3">
+            <div class="pt-4 pb-4 pt-md-5">
+
+
+                <div class="row">
+                    <div class="col-12 col-md-4 summary">
+                        <div class="pr-0 pr-md-4">
+                            <p class="h6">TemplateStack</p>
+                            <div class="text-left mt-0 mb-3">
+                                <p class="small d-block">
+
+
+
+
+                                    <br>Todos os direitos reservados
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-4 institutional">
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 information">
+                        <p class="h6">Informações</p>
+                        <ul class="list-unstyled">
+                            <li><a href="https://templatestack.vercel.app/temas-para-loja-integrada">Temas Loja Integrada</a></li>
+                            <li><a href="https://templatestack.vercel.app/temas-para-nuvemshop">Temas Nuvemshop</a></li>
+                            <li><a href="https://templatestack.vercel.app/temas-para-shopify">Temas Shopify</a></li>
+                            <li><a href="https://templatestack.vercel.app/tema-focal-shopify">Tema Focal Shopify</a></li>
+                            <li><a href="https://templatestack.vercel.app/dropshipping-latam">Dropshipping LATAM</a></li>
+							<li><a href="https://templatestack.vercel.app/templates-de-ecommerce">Melhores Templates de E-Commerce</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-md-2 ml-auto mb-3 social-media">
+                        <p class="h6 mb-3">Redes sociais</p>
+                        <ul class="social-media-list list-inline mb-0">
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        footer a {
+            color: #666;
+        }
+    </style>
+
+    <div class="direitos">
+        <div class="text-center fonte-padrao">
+            
+        </div>
+    </div>
+
+    <style>
+        .direitos,
+        .direitos *,
+        .direitos::before,
+        .direitos::after,
+        .direitos>div,
+        .direitos div,
+        .direitos div a,
+        .direitos strong {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 98 !important;
+            pointer-events: auto !important;
+            height: auto !important;
+            width: auto !important;
+            max-height: none !important;
+            max-width: none !important;
+        }
+    </style>
+
+</body>
+
+</html>
